@@ -29,3 +29,13 @@ model ItemDetails {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model Feedback{
+  id Int @id @default(autoincrement())
+  rating Int?
+  feedback String?
+  email String
+  createdAt DateTime @default(now())
+  
+}
+
