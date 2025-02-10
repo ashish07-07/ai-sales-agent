@@ -37,5 +37,17 @@ model Feedback{
   email String
   createdAt DateTime @default(now())
   
+
+}
+
+
+model quote{
+
+  id Int @id @default(autoincrement())
+  itemname String
+  size String
+  quantity Int
+  email String
+  customization String
 }
 
