@@ -72,7 +72,7 @@ export default function RequestQuoteForm() {
                 placeholder="Enter the item name"
                 value={details.itemname}
                 onChange={handleChange}
-                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500 text-black"
               />
             </div>
 
@@ -84,7 +84,7 @@ export default function RequestQuoteForm() {
                 placeholder="Enter the size you want"
                 value={details.size}
                 onChange={handleChange}
-                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500 text-black"
               />
             </div>
 
@@ -108,7 +108,7 @@ export default function RequestQuoteForm() {
                 placeholder="Enter your email address"
                 value={details.email}
                 onChange={handleChange}
-                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500 text-black"
               />
             </div>
 
@@ -120,7 +120,7 @@ export default function RequestQuoteForm() {
                 placeholder="Enter the customization details"
                 value={details.customization}
                 onChange={handleChange}
-                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-blue-500 text-black"
               />
             </div>
 
