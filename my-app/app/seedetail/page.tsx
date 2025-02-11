@@ -21,6 +21,10 @@ export default function SeeDetail() {
   const router = useRouter();
   const [product, setProduct] = useState<ProductType | null>(null);
   const [hovering, setHovering] = useState(false);
+  async function customrequest()
+  {
+       router.push('/quote-request')
+  }
 
   useEffect(() => {
     // Get the product details from sessionStorage
@@ -91,9 +95,12 @@ export default function SeeDetail() {
                   Back to Products
                 </button>
                 <button
+                 onClick={customrequest}
+                   
                   className="bg-purple-600 text-white px-6 py-3 rounded-md hover:bg-purple-700 transition-colors"
+                  
                 >
-                  Add to Cart
+                  Customization Request to salesteam
                 </button>
               </div>
             </motion.div>

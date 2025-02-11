@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { MessageCircle, ShoppingBag, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-// Custom Alert Component
+
 const CustomAlert = ({ children, onClose }: { children: React.ReactNode; onClose?: () => void }) => (
   <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative shadow-lg">
     <span className="block sm:inline">{children}</span>
@@ -41,13 +41,14 @@ const ProductAndChat = () => {
   }, []);
 
   const handleChatRequest = (product: any) => {
-    setSelectedProduct(product);
-    setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 3000);
+    router.push('/chatmodel')
+    // setSelectedProduct(product);
+    // setShowNotification(true);
+    // setTimeout(() => setShowNotification(false), 3000);
   };
 
   const handleSeeMore = (product: any) => {
-    // Store the selected product details in sessionStorage
+
     sessionStorage.setItem('selectedProduct', JSON.stringify({
       itemName: product.itemName,
       description: product.description,
@@ -57,7 +58,7 @@ const ProductAndChat = () => {
       sizes: product.sizes
     }));
     
-    // Navigate to seedetail page
+ 
     router.push('/seedetail');
   };
 
@@ -79,7 +80,7 @@ const ProductAndChat = () => {
               <ShoppingBag className="w-5 h-5 mr-2" />
               Products
             </button>
-            <button
+            {/* <button
               onClick={() => setActiveTab('chat')}
               className={`flex items-center px-4 py-3 text-sm font-medium border-b-2 ${
                 activeTab === 'chat'
@@ -89,7 +90,12 @@ const ProductAndChat = () => {
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Chat Support
-            </button>
+            </button> */}
+            <button onClick={function()
+              {
+                  router.push('/chatmodel')
+              }
+            }></button>
           </div>
         </div>
       </div>

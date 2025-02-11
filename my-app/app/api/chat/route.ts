@@ -10,7 +10,7 @@ const groq = createGroq({
 
 export async function POST(req: NextRequest) {
   try {
-    // Fetch product data
+
     const productDetails = await prisma.itemDetails.findMany();
     const sanitizedProducts = productDetails.map((val: any) => ({
       name: val.itemName,
@@ -19,14 +19,12 @@ export async function POST(req: NextRequest) {
       price: val.cost,
     }));
 
-    // Parse request body
+ 
     const body = await req.json();
     console.log("Received body:", body); // Debugging
 
-    // Ensure messages is an array
     const messages = Array.isArray(body.messages) ? body.messages : [];
 
-    // Create the system message with product data
     const systemMessage = {
       role: 'system',
       content: `You are an AI sales assistant. Use this product data to answer: ${JSON.stringify(
