@@ -1471,6 +1471,8 @@
 //   );
 // }
 
+
+
 'use client';
 
 import React, { useState } from 'react';
@@ -1479,7 +1481,7 @@ import { Star, X, ChevronLeft, Send } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 export default function AnimatedChat() {
   const router = useRouter();
@@ -1509,7 +1511,7 @@ export default function AnimatedChat() {
 
   const handleSubmitFeedback = async () => {
     try {
-      await axios.post('/api/feedback', {
+      const response = await axios.post('/api/feedback', {
         rating,
         feedbackText,
         email: useremail
@@ -1517,42 +1519,22 @@ export default function AnimatedChat() {
 
       handleCloseFeedback();
       
-      toast.success('Thank you for your feedback!', {
-        duration: 5000,
+      toast.success('Thank you for providing the feedback!', {
+        duration: 2000,
         position: 'top-center',
-        className: 'bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg',
-        icon: '👍',
         style: {
-          background: '#22c55e',
+          background: '#4B0082',
           color: '#ffffff',
-          border: 'none',
-          padding: '16px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          fontSize: '16px',
-          minWidth: '300px'
+          border: '1px solid #FF69B4',
         },
       });
 
       setTimeout(() => {
         router.push('/seeallproduct');
-      }, 5000);
+      }, 15000);
 
     } catch (error) {
-      toast.error('Failed to submit feedback. Please try again.', {
-        duration: 5000,
-        position: 'top-center',
-        className: 'bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg',
-        icon: '❌',
-        style: {
-          background: '#ef4444',
-          color: '#ffffff',
-          border: 'none',
-          padding: '16px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          fontSize: '16px',
-          minWidth: '300px'
-        },
-      });
+      toast.error('Failed to submit feedback. Sign in to provide feedback :)');
     }
   };
 
@@ -1562,8 +1544,6 @@ export default function AnimatedChat() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-red-950 via-pink-900 to-red-900 animate-gradient-x">
-      <Toaster />
-      
       <div className="max-w-2xl mx-auto p-4">
         {/* Animated background bubbles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -1572,17 +1552,17 @@ export default function AnimatedChat() {
           <div className="bubble animate-float-fast"></div>
         </div>
 
-        {/* Sticky header with close button */}
+        {/* Header with improved mobile visibility for close button */}
         <div className="sticky top-0 z-50 w-full flex justify-end mb-4">
           <button
             onClick={() => setShowFeedback(true)}
-            className="p-3 rounded-full bg-red-800/50 hover:bg-red-700/50 transition-transform hover:rotate-90 duration-300 text-white shadow-lg touch-manipulation"
+            className="p-3 rounded-full bg-red-800/80 hover:bg-red-700/80 transition-all duration-300 text-white shadow-lg touch-manipulation fixed top-4 right-4 sm:static sm:top-auto sm:right-auto"
           >
-            <X className="w-6 h-6 sm:w-8 sm:h-8" />
+            <X className="w-6 h-6 sm:w-7 sm:h-7" />
           </button>
         </div>
 
-        {/* Chat container with messages */}
+        {/* Chat container with slide animation */}
         <div className={`transition-all duration-300 transform ${showFeedback ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
           <div className="bg-red-950/30 backdrop-blur-sm rounded-lg p-4 h-[500px] overflow-y-auto mb-4 shadow-lg text-white">
             {messages.map(message => (
@@ -1599,7 +1579,6 @@ export default function AnimatedChat() {
             ))}
           </div>
 
-          {/* Chat input form */}
           <form onSubmit={handleSubmit} className="flex gap-2">
             <input
               className="flex-1 p-2 border border-red-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600 bg-red-950/30 backdrop-blur-sm text-white placeholder-gray-400"
@@ -1619,7 +1598,7 @@ export default function AnimatedChat() {
           </form>
         </div>
 
-        {/* Feedback overlay */}
+        {/* Enhanced Feedback overlay with animation */}
         {showFeedback && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in z-50">
             <div className="bg-red-950/90 p-6 rounded-lg shadow-xl animate-scale-in text-white max-w-md w-full mx-4">
