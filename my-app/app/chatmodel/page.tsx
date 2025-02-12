@@ -1534,7 +1534,7 @@ export default function AnimatedChat() {
       }, 15000);
 
     } catch (error) {
-      toast.error('Failed to submit feedback. Sign in to provide feedback :)');
+      toast.error('Failed to submit feedback. Sign in to provide feedback:) HOme page');
     }
   };
 
