@@ -131,14 +131,28 @@ const LandingPage = () => {
               <p className="text-lg mb-8 text-gray-600">Experience the power of AI-driven sales assistance</p>
               <button  onClick={function ()
                 {
+                    router.push('/summaryfeedback')
+                }
+              }
+               className="px-8 py-4 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white transition-colors duration-300 font-semibold group">
+                Summary Feedabck of Sales
+                <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button  onClick={function ()
+                {
                     router.push('/salesfeedback')
                 }
               }
                className="px-8 py-4 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white transition-colors duration-300 font-semibold group">
-                Sentiment Analysed so far
+                See the Ratings
                 <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
+
+           
             </div>
+
+           
           </div>
         </div>
       </div>

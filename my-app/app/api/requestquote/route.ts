@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
       await transporter.sendMail({
         from: `"Custom T-Shirt Team" <${process.env.SMTP_SERVER_USERNAME}>`, // Proper format
         to: body.email,
-        subject: "Thank you for your t-shirt inquiry",
+        subject: "Thank you for your t-shirt enquiry",
         text: `Hello ${body.email.split('@')[0]},
         
   We've received your request for:

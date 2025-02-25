@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
 
  
     const body = await req.json();
-    console.log("Received body:", body); // Debugging
+    console.log("Received body:", body); 
 
     const messages = Array.isArray(body.messages) ? body.messages : [];
 
